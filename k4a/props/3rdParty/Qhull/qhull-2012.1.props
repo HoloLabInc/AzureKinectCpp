@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <QHULL_2012_1_ROOT Condition="'$(Platform)'=='Win32'">$(ProgramFiles)\PCL 1.8.0\3rdParty\Qhull</QHULL_2012_1_ROOT>
+    <QHULL_2012_1_ROOT Condition="'$(Platform)'=='x64'">D:\ProgramFiles\PCL1.8.0\3rdParty\Qhull</QHULL_2012_1_ROOT>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ExecutablePath>$(QHULL_2012_1_ROOT)\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(QHULL_2012_1_ROOT)\include\libqhull;$(QHULL_2012_1_ROOT)\include\libqhullcpp;$(IncludePath)</IncludePath>
+    <LibraryPath>$(QHULL_2012_1_ROOT)\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Debug'">qhull_d.lib;qhull_p_d.lib;qhull_r_d.lib;qhullcpp_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Release'">qhull.lib;qhull_p.lib;qhull_r.lib;qhullcpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\PCL 1.8.0\3rdParty\Qhull\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="QHULL_2012_1_ROOT">
+      <Value>$(QHULL_2012_1_ROOT)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

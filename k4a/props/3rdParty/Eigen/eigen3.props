@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <EIGEN_3_ROOT>D:\ProgramFiles\PCL1.8.0\3rdParty\Eigen</EIGEN_3_ROOT>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(EIGEN_3_ROOT)\eigen3;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\PCL 1.8.0\3rdParty\Eigen\eigen3;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="EIGEN_3_ROOT">
+      <Value>$(EIGEN_3_ROOT)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

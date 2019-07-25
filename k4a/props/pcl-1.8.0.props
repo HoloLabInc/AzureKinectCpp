@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="3rdParty\Boost\boost-1.61.0.props" />
+    <Import Project="3rdParty\Eigen\eigen3.props" />
+    <Import Project="3rdParty\FLANN\flann-1.8.4.props" />
+    <Import Project="3rdParty\VTK\vtk-7.0.props" />
+    <Import Project="3rdParty\Qhull\qhull-2012.1.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <PCL_1_8_0_ROOT Condition="'$(Platform)'=='Win32'">$(ProgramFiles)\PCL 1.8.0</PCL_1_8_0_ROOT>
+    <PCL_1_8_0_ROOT Condition="'$(Platform)'=='x64'">D:\ProgramFiles\PCL1.8.0</PCL_1_8_0_ROOT>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ExecutablePath>$(PCL_1_8_0_ROOT)\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(PCL_1_8_0_ROOT)\include\pcl-1.8;$(IncludePath)</IncludePath>
+    <LibraryPath>$(PCL_1_8_0_ROOT)\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Debug'">pcl_common_debug.lib;pcl_features_debug.lib;pcl_filters_debug.lib;pcl_io_debug.lib;pcl_io_ply_debug.lib;pcl_kdtree_debug.lib;pcl_keypoints_debug.lib;pcl_ml_debug.lib;pcl_octree_debug.lib;pcl_outofcore_debug.lib;pcl_people_debug.lib;pcl_recognition_debug.lib;pcl_registration_debug.lib;pcl_sample_consensus_debug.lib;pcl_search_debug.lib;pcl_segmentation_debug.lib;pcl_stereo_debug.lib;pcl_surface_debug.lib;pcl_tracking_debug.lib;pcl_visualization_debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Release'">pcl_common_release.lib;pcl_features_release.lib;pcl_filters_release.lib;pcl_io_ply_release.lib;pcl_io_release.lib;pcl_kdtree_release.lib;pcl_keypoints_release.lib;pcl_ml_release.lib;pcl_octree_release.lib;pcl_outofcore_release.lib;pcl_people_release.lib;pcl_recognition_release.lib;pcl_registration_release.lib;pcl_sample_consensus_release.lib;pcl_search_release.lib;pcl_segmentation_release.lib;pcl_stereo_release.lib;pcl_surface_release.lib;pcl_tracking_release.lib;pcl_visualization_release.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\PCL 1.8.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\PCL 1.8.0\include\pcl-1.8;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="PCL_1_8_0_ROOT">
+      <Value>$(PCL_1_8_0_ROOT)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

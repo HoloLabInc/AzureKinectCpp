@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <FLANN_1_8_4_ROOT Condition="'$(Platform)'=='Win32'">$(ProgramFiles)\PCL 1.8.0\3rdParty\FLANN</FLANN_1_8_4_ROOT>
+    <FLANN_1_8_4_ROOT Condition="'$(Platform)'=='x64'">D:\ProgramFiles\PCL1.8.0\3rdParty\FLANN</FLANN_1_8_4_ROOT>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ExecutablePath>$(FLANN_1_8_4_ROOT)\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(FLANN_1_8_4_ROOT)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(FLANN_1_8_4_ROOT)\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Debug' AND '(PlatformToolset)'=='v140'">flann-gd.lib;flann_cpp_s-gd.lib%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Release' AND '(PlatformToolset)'=='v140'">flann.lib;flann_cpp_s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="FLANN_1_8_4_ROOT">
+      <Value>$(FLANN_1_8_4_ROOT)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
